@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+
+}
+
+body {
+    background-color: var(--grey);
+}
+
+:root {
+    --blue: #1977ef;
+    --green: #42b72b;
+    --grey: #f1f2f6;
+    --text: #a0a0a0;
+}
+
+aside {
+    font-family: SFPRODISPLAYREGULAR, Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+}
+
+.flex {
+    display: flex;
+    padding: 30px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+
+.form {
+    padding: 10px;
+    width: 330px;
+    box-shadow: 1px 1px 15px rgb(161, 161, 161);
+    border-radius: 4px;
+    text-align: center;
+    /* color: red; */
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+::placeholder {
+    color: var(--text);
+}
+
+.form--item {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+
+    border-radius: 5px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input--field {
+    border: 1px rgb(216, 215, 215) solid;
+}
+
+/* .input--field:focus{
+    border: none;
+} */
+.login--btn {
+    background-color: var(--blue);
+    color: white;
+}
+
+.create--account {
+    width: 60%;
+    height: 35px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--green);
+    color: white;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+}
+
+.forgot {
+    font-size: 0.938rem;
+    color: var(--blue);
+    text-decoration: none;
+}
+
+aside h1 {
+    color: var(--blue);
+    font-size: 2.5rem;
+}
+
+div {
+    text-align: center;
+
+}
