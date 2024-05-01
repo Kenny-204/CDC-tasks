@@ -64,19 +64,20 @@
             status.textContent = 'correct';
             score = score + 1;
             record.textContent = score;
-            current = current + 1;
+            current++
             if (current < total) {
               generateNewQuestion();
-              curQuestion.textContent = current + 1;
+              curQuestion.textContent = current;
             } else {
               alert(`Your score is ${score}/${total}`);
             }
           } else {
             console.log('nah')
             status.textContent = 'wrong';
+            current++
              if (current < total) {
-              generateNewQuestion();
-              curQuestion.textContent = current + 1;
+              generateNewQuestion();     
+              curQuestion.textContent = current;
             } else {
               alert(`Your score is ${score}/${total}`);
             }
