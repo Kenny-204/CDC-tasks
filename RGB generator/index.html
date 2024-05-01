@@ -69,11 +69,17 @@
               generateNewQuestion();
               curQuestion.textContent = current + 1;
             } else {
-              alert('Game Over');
+              alert(`Your score is ${score}/${total}`);
             }
           } else {
             console.log('nah')
             status.textContent = 'wrong';
+             if (current < total) {
+              generateNewQuestion();
+              curQuestion.textContent = current + 1;
+            } else {
+              alert(`Your score is ${score}/${total}`);
+            }
           }
         })
       })
