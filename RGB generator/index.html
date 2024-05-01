@@ -1,45 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <title>RGB game</title>
+  <style>
+    .color {
+      width: 300px;
+      height: 50px;
+      border: 2px black solid;
+      background-color: red;
+    }
+
+    .option {
+      padding: 30px;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="color">
-            w
-        </div>
+  <div class="container">
+    <div class="color"></div>
+    <p>Choose the correct color in RGB</p>
+    <ol type="a">
+      <li class="option">option 1</li>
+      <li class="option">option 1</li>
+      <li class="option">option 1</li>
+      <li class="option">option 1</li>
+    </ol>
+    <p>Your answer is <span class="status">...</span></p>
+    <p>score is <span class="score">0</span></p>
+    <p>question <span class="curNumber">1</span>/<span class="total">5</span></p>
+  </div>
+  <script>
+    const color = document.querySelector('.color');
+    const options = document.querySelectorAll('.option');
+    const status = document.querySelector('.status');
+    const record = document.querySelector('.score');
+    const totalScore = document.querySelector('.total')
+    const curQuestion = document.querySelector('.curNumber');
+    let score = 0;
+    let total = 5;
+    let current = 0;
 
-        <div>
-            <p>Guess the color in RGB</p>
-            <ol type="a">
-                <li class="option">option1</li>
-                <li class="option">option1</li>
-                <li class="option">option1</li>
-                <li class="option">option1</li>
-            </ol>
-        </div>
-    </div>
+    function generateNewQuestion() {
+      const RBGgen = function () {
+        let red = 0, blue = 0, green = 0;
+        const [r, g, b] = [red, blue, green].map(color => color += Math.trunc(Math.random() * 256))
+        return `${r},${g},${b}`
+      }
+      const correctOption = Math.trunc(Math.random() * 4);
+      let ans;
 
-</body>
-<script>
-    const rgbGen = function () {
-        let red = 0;
-        let green =0;
-        let blue = 0;
-        const cols = [red, green, blue]
-        cols.forEach(color =>  {
-            
-           color =  color + Math.trunc(Math.random() * 256)
-           console.log(color);
+      options.forEach((option, i) => {
+        option.textContent = `rgb(${RBGgen()})`
+        if (i == correctOption) {
+          color.style.backgroundColor = option.textContent;
+          ans = option.textContent;
+        }
+
+        option.addEventListener('click', function () {
+          if (option.textContent == ans) {
+            console.log('yay');
+            status.textContent = 'correct';
+            score = score + 1;
+            record.textContent = score;
+            current = current + 1;
+            if (current < total) {
+              generateNewQuestion();
+              curQuestion.textContent = current + 1;
+            } else {
+              alert('Game Over');
+            }
+          } else {
+            console.log('nah')
+            status.textContent = 'wrong';
+          }
         })
-        console.log(cols)
+      })
     }
-    rgbGen()
-</script>
+
+    generateNewQuestion();
+  </script>
+</body>
 
 </html>
