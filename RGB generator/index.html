@@ -59,12 +59,13 @@
         }
 
         option.addEventListener('click', function () {
+          current++;
           if (option.textContent == ans) {
             console.log('yay');
             status.textContent = 'correct';
             score = score + 1;
             record.textContent = score;
-            current++
+            
             if (current < total) {
               generateNewQuestion();
               curQuestion.textContent = current;
@@ -74,7 +75,7 @@
           } else {
             console.log('nah')
             status.textContent = 'wrong';
-            current++
+            
              if (current < total) {
               generateNewQuestion();     
               curQuestion.textContent = current;
