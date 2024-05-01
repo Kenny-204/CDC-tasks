@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="color">
+            w
+        </div>
+
+        <div>
+            <p>Guess the color in RGB</p>
+            <ol type="a">
+                <li class="option">option1</li>
+                <li class="option">option1</li>
+                <li class="option">option1</li>
+                <li class="option">option1</li>
+            </ol>
+        </div>
+    </div>
+
+</body>
+<script>
+    const rgbGen = function () {
+        let red = 0;
+        let green =0;
+        let blue = 0;
+        const cols = [red, green, blue]
+        cols.forEach(color =>  {
+            
+           color =  color + Math.trunc(Math.random() * 256)
+           console.log(color);
+        })
+        console.log(cols)
+    }
+    rgbGen()
+</script>
+
+</html>
