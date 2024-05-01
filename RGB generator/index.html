@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html>
 
@@ -59,23 +60,29 @@
         }
 
         option.addEventListener('click', function () {
+          current++;
           if (option.textContent == ans) {
             console.log('yay');
             status.textContent = 'correct';
             score = score + 1;
             record.textContent = score;
+            
+            if (current < total) {
+              generateNewQuestion();
+              curQuestion.textContent = current;
+            } else {
+              alert(`Your score is ${score}/${total}`);
+            }
           } else {
             console.log('nah')
             status.textContent = 'wrong';
-          }
-
-          current++; // Moved outside of the if-else statement
-
-          if (current < total) {
-            generateNewQuestion();
-            curQuestion.textContent = current;
-          } else {
-            alert(`Your score is ${score}/${total}`);
+            
+             if (current < total) {
+              generateNewQuestion();     
+              curQuestion.textContent = current;
+            } else {
+              alert(`Your score is ${score}/${total}`);
+            }
           }
         })
       })
